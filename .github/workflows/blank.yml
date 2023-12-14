@@ -40,9 +40,9 @@ jobs:
 
       - name: Setup Graphviz
         uses: ts-graphviz/setup-graphviz@v1
-          with:
-            #  graphviz version on Windows.
-            windows-graphviz-version: '2.49.3'
+        with:
+          #  graphviz version on Windows.
+          windows-graphviz-version: '2.49.3'
         
       # Runs a single command using the runners shell
       - name: Build wheels for requirements
