@@ -39,10 +39,14 @@ jobs:
         uses: ilammy/msvc-dev-cmd@v1
 
       - name: Setup Graphviz
-        uses: ts-graphviz/setup-graphviz@v1
-        with:
-          #  graphviz version on Windows.
-          windows-graphviz-version: '2.49.3'
+        uses: tlylt/install-graphviz@main
+
+      - name: Install pygraphviz
+        run: python -m pip install --use-pep517 `
+                  --config-settings="--global-option=build_ext" `
+                  --config-settings="--global-option=-IC:\Program Files\Graphviz\include" `
+                  --config-settings="--global-option=-LC:\Program Files\Graphviz\lib" `
+                  pygraphviz
         
       # Runs a single command using the runners shell
       - name: Build wheels for requirements
